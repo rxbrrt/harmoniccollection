@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.pixelify-sans {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400px;
+  font-style: normal;
+  font-size: 70px;
+  color: white;
+  z-index: 10;
+}
+
+.pixelify-sans:hover{
+    cursor: default;
+}
+
+.background{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.anim{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+} 
+
+.bg1{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-iteration-count: infinite;
+}
+
+.bg2{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+}
+.bg3{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 8s;
+    animation-iteration-count: infinite;
+}
+.bg4{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 12s;
+    animation-iteration-count: infinite;
+}
+.bg5{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 16s;
+    animation-iteration-count: infinite;
+}
+.bg6{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 20s;
+    animation-iteration-count: infinite;
+}
+.bg7{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 24s;
+    animation-iteration-count: infinite;
+}
+.bg8{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 28s;
+    animation-iteration-count: infinite;
+}
+.bg9{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 32s;
+    animation-iteration-count: infinite;
+}
+.bg10{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 36s;
+    animation-iteration-count: infinite;
+}
+.bg11{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 40s;
+    animation-iteration-count: infinite;
+}
+.bg12{
+    min-width: 100%;
+    max-height: 100%;
+    animation-name: background-anim;
+    animation-duration: 48s;
+    animation-delay: 44s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes background-anim {
+    0% {
+        opacity: 0;
+        z-index: 5
+    }
+
+    8.5% {
+        opacity: 1;
+    }
+
+    17% {
+        opacity: 0;
+        z-index: 0;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+
+/* when change width: 100vh width 100% */
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.entries{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+}
+
+/* when res change width becomes 80 */
+
+.entry{
+    flex: 1;
+    padding: 6px;
+    margin: 10px;
+    border: 3px solid white;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0 0 0;
+    transition: all 200ms;
+    box-shadow: 0 0;
+}
+
+.entry:hover{
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.8);
+    color: rgb(173, 162, 247);
+    transform: translateY(-8px);
+    box-shadow: 0px 8px rgb(173, 162, 247, 0.8);
+}
+
+a{
+    text-decoration: none;
+}
+
+/* media query stuff */
+
+@media screen and (max-width: 800px){
+    .entries{
+        align-items: center;
+        justify-content: center;
+        width: 80vw;
+    }
+}
+
+body{
+    overflow: hidden;
+}

@@ -1,0 +1,200 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.body{
+    overflow: hidden;
+}
+.flower1{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    transition-duration: 0.2s;
+}
+.flower1:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+.flower2{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.25s;
+    transition-duration: 0.2s;
+}
+.flower2:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+.flower3{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    transition-duration: 0.2s;
+}
+.flower3:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+.flower4{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    transition-duration: 0.2s;
+}
+.flower4:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+@keyframes flower-anim1 {
+    0%{
+        rotate: -15deg;
+    }
+    50%{
+        rotate: 15deg;
+    }
+    100%{
+        rotate: -15deg;
+    }
+}
+@keyframes flower-anim2 {
+        0%{
+            rotate: 15deg;
+        }
+        50%{
+            rotate: -15deg;
+        }
+        100%{
+            rotate: 15deg;
+        }
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    justify-content: space-between;
+    position: relative;
+}
+.home{
+    position: absolute;
+    text-align: center;
+    color: white;
+    top: 0;
+    z-index: 10;
+}
+
+.scroll{
+    position: absolute;
+    text-align: center;
+    color: white;
+    bottom: 0;
+    z-index: 10;
+}
+.drag{
+    position: absolute;
+    text-align: center;
+    color: white;
+    right: 0;
+    z-index: 10;
+}
+
+.plug{
+    position: absolute;
+    text-align: center;
+    color: white;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+p{
+    text-overflow: clip;
+    white-space: nowrap;
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 100px;
+    font-weight: 600;
+}
+
+.loop-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    z-index: -100;
+    rotate: 10deg;
+    cursor: default;
+}
+
+.loop{
+    margin: 10px;
+    flex: 1;
+    animation-name: loop-anim;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    cursor: default;
+}
+
+.loop:hover{
+    filter:drop-shadow(0 0 0.75rem rgb(119, 119, 254));
+}
+
+@keyframes loop-anim {
+      to {
+        transform: translateX(-50%);
+      }
+}

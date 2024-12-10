@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    *{
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    .mother-container{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .draggable { 
+      width: 250px; 
+      display: inline-block; 
+      background-color: white;
+      box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
+    }
+
+    .draggable:hover{
+        box-shadow: 8px 8px 8px rgb(0, 0, 0, 0.5);
+    }
+
+    .content{
+        margin: 10px ;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #draggable1{
+        top: 20%;
+        left: 10%;
+        rotate: 5deg;
+    }
+
+    #draggable2{
+        top: 40%;
+        left: 40%;
+        rotate: -5deg;
+    }
+
+    #draggable3{
+        top: 60%;
+        left: 50%;
+        rotate: 5deg;
+    }
+
+    #draggable4{
+        top: 15%;
+        left: 75%;
+        rotate: -5deg;
+    }
+
+    #draggable5{
+        top: 20%;
+        left: 58%;
+        rotate: 5deg;
+    }
+
+    #draggable6{
+        top: 10%;
+        left: 30%;
+        rotate: -5deg;
+    }
+
+    #draggable7{
+        top: 50%;
+        left: 25%;
+        rotate: 5deg;
+    }
+
+    #draggable8{
+        top: 50%;
+        left: 70%;
+        rotate: -5deg;
+    }
+
+    .tab-container{
+        box-sizing: border-box;
+        position: absolute;
+        width: 250px;
+        transition-property: all;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .tab-container:hover{
+        z-index: 10;
+        transform:rotate(3deg) scale(1.05);
+        transition-property: all;
+        transition-duration: .1s;
+        transition-timing-function: ease-in-out;
+    }
+
+    img{
+        object-fit: contain;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .home{
+        position: relative;
+        text-align: center;
+        color: white;
+        left: 10%;
+        top: 50%;
+        display: inline-block;
+    }
+
+    .scroll{
+        position: relative;
+        text-align: center;
+        color: white;
+        left: 28%;
+        top: 5%;
+        display: inline-block;
+    }
+
+    .draw{
+        position: relative;
+        text-align: center;
+        color: white;
+        left: 45%;
+        top: 30%;
+        display: inline-block;
+    }
+
+    .flower1{
+        position: relative;
+        height: 275px;
+        width: 275px;
+        top: 50%;
+        left: 0%;
+    animation-name: flower-anim1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    transition-duration: 0.2s;
+    }
+
+    .flower1:hover{
+        animation-play-state: paused;
+        filter: drop-shadow(0 0 3px yellow);
+        scale: 1.05;
+        transition-duration: 0.2s;
+    }
+    .flower2{
+        position: relative;
+        height: 275px;
+        width: 275px;
+        top: 50%;
+        left: 0%;
+    animation-name: flower-anim2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.25s;
+    transition-duration: 0.2s;
+    }
+    .flower2:hover{
+        animation-play-state: paused;
+        filter: drop-shadow(0 0 3px yellow);
+        scale: 1.05;
+        transition-duration: 0.2s;
+    }
+    .flower3{
+        position: relative;
+        height: 275px;
+        width: 275px;
+        top: 50%;
+        left: 0%;
+    animation-name: flower-anim1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    transition-duration: 0.2s;
+    }
+    .flower3:hover{
+        animation-play-state: paused;
+        filter: drop-shadow(0 0 3px yellow);
+        scale: 1.05;
+        transition-duration: 0.2s;
+    }
+
+    @keyframes flower-anim1 {
+    0%{
+        rotate: -15deg;
+    }
+    50%{
+        rotate: 15deg;
+    }
+    100%{
+        rotate: -15deg;
+    }
+}
+@keyframes flower-anim2 {
+        0%{
+            rotate: 15deg;
+        }
+        50%{
+            rotate: -15deg;
+        }
+        100%{
+            rotate: 15deg;
+        }
+}
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    a{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+    }
+    body {
+  background: white;
+  background-image: radial-gradient(lightblue 2px, transparent 0);
+  background-size: 40px 40px;
+  background-position: -19px -19px;
+}
+
+.text{
+    padding-top: 10px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    // Apply draggable to all elements with class 'draggable'
+    $( ".draggable" ).draggable();
+  });
+  </script>
+</head>
+<body>
+    <div class="mother-container">
+        <div class="tab-container" id="draggable1">
+            <div  class="draggable ui-widget-content">
+                <div class="content"><img src="images/1.jpg"><p class="text">im a creep</p></div>
+            </div>
+        </div>
+
+        <div class="tab-container" id="draggable2">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/2.jpg"><p class="text">Nov 20</p></div>
+            </div>    
+        </div>
+
+        <div class="tab-container" id="draggable3">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/3.jpg"><p class="text">flowers</p></div>
+            </div>    
+        </div>
+
+        <div class="tab-container" id="draggable4">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/4.jpg"><p class="text">miniature</p></div>
+            </div>    
+        </div>
+
+        <div class="tab-container" id="draggable5">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/5.jpg"><p class="text">my dream car</p></div>
+            </div>    
+        </div>
+
+        <div class="tab-container" id="draggable6">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/6.jpg"><p class="text">selfie!</p></div>
+            </div>    
+        </div>
+
+        <div class="tab-container" id="draggable7">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/7.jpg"><p class="text">:P</p></div>
+            </div>    
+        </div>
+
+        <div class="tab-container" id="draggable8">
+            <div class="draggable ui-widget-content">
+                <div class="content"><img src="images/8.jpg"><p class="text">e</p></div>
+            </div>    
+        </div>
+        <div class="home">
+            <a href="../index.html"><img class="flower1" src="images/whiteflower.png"></a>
+            <div class="centered"><a href="../homepage/index.html">go home?</a></div>
+        </div>
+        <div class="scroll">
+            <a href="../endless yellow tape/index.html"><img class="flower2" src="images/whiteflower.png"></a>
+            <div class="centered"><a href="../endless yellow tape/index.html">let's chat!</a></div>
+        </div>
+        <div class="draw">
+            <a href="../losing my mind/index.html"><img class="flower3" src="images/whiteflower.png"></a>
+            <div class="centered"><a href="../losing my mind/index.html">the studio</a></div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+/* Set the size of the container */
+#canvasContainer {
+    position: absolute;
+    width: 1000px;       
+    height: 60%;       
+    top: 2%;
+    left: 40%;
+}
+
+/* Styling for canvas */
+#canvasContainer canvas {
+    position: relative;
+    top: 0;
+    left: 0;
+    border: 2px solid grey;
+}
+
+/* Styling for the color picker */
+.color-picker {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* Styling for brush type selector */
+.brush-type-selector {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+
+/* Styling for slider */
+.brush-slider {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    width: 150px;
+}
+
+/* Styling for erase button */
+.erase-button {
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Styling for save button */
+.save-button {
+    position: absolute;
+    top: 200px;
+    left: 10px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* no more please */
+
+body{
+    overflow: hidden; 
+}
+
+.background{
+    width: 200%;
+    height: 100px;
+    background-image: url(gifs/blue.gif);
+    background-repeat: repeat-x;
+    margin-top: 50px;
+    animation-name: background-anim;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: linear;
+}
+@keyframes background-anim{
+    0%{
+        left: 0%;
+    }
+    100%{
+        left: -80%;
+    }
+}
+.background2{
+    width: 200%;
+    height: 100px;
+    background-image: url(gifs/blue.gif);
+    background-repeat: repeat-x;
+    margin-top: 50px;
+    animation-name: background-anim-other;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: linear;
+    transform: scaleX(-1);
+}
+@keyframes background-anim-other{
+    0%{
+        left: -100%;
+    }
+    100%{
+        left: -20%;
+    }
+}
+.yellow{
+    animation-name: running;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    position: absolute;
+    scale: 0.3;
+    bottom: -140px;
+    left: 120%;
+}
+
+.blue{
+    animation-name: running;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    scale: 0.3;
+    bottom: -140px;
+}
+
+@keyframes running{
+    0%{
+        left: 120%;
+    }
+    100%{
+        left: -60%;
+    }
+}
+
+.redhanging{
+    position: absolute;
+    z-index: 40;
+    top: -4px;
+    left: -15%;
+    scale: 0.7;
+}
+
+.chillyellow{
+    position: absolute;
+    z-index: 40;
+    top: -40px;
+    left: 75%;
+    scale: 0.7
+}
+
+.flower1{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    transition-duration: 0.2s;
+}
+.flower1:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+.flower2{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.25s;
+    transition-duration: 0.2s;
+}
+.flower2:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+.flower3{
+    position: relative;
+    height: 275px;
+    width: 275px;
+    top: 50%;
+    left: 0%;
+    animation-name: flower-anim1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    transition-duration: 0.2s;
+}
+.flower3:hover{
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 3px yellow);
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+@keyframes flower-anim1 {
+    0%{
+        rotate: -15deg;
+    }
+    50%{
+        rotate: 15deg;
+    }
+    100%{
+        rotate: -15deg;
+    }
+}
+@keyframes flower-anim2 {
+        0%{
+            rotate: 15deg;
+        }
+        50%{
+            rotate: -15deg;
+        }
+        100%{
+            rotate: 15deg;
+        }
+}
+.home{
+    position: absolute;
+    text-align: center;
+    color: white;
+    top: -275px;
+    left: 50px;
+    animation-name: home-anim;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes home-anim{
+    0%{
+        position: absolute;
+    }
+    100%{
+        top: 75px;
+    }
+}
+
+.scroll{
+    position: absolute;
+    text-align: center;
+    color: white;
+    top: -275px;
+    left: 175px;
+    animation-name: scroll-anim;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes scroll-anim{
+    0%{
+        position: absolute;
+    }
+    100%{
+        top: 575px;
+    }
+}
+.drag{
+    position: absolute;
+    text-align: center;
+    color: white;
+    top: -275px;
+    left: 350px;
+    animation-name: drag-anim;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes drag-anim{
+    0%{
+        position: absolute;
+    }
+    100%{
+        top: 275px;
+    }
+}
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+}
